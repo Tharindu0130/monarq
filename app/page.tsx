@@ -33,7 +33,7 @@ export default function Home() {
       <Navbar />
 
       {/* HERO SLIDER */}
-      <section className="px-6 md:px-1 pt-0">
+      <section className="w-full pt-0">
         <div className="w-full h-[80vh] overflow-hidden shadow-lg relative">
 
           <div
@@ -43,13 +43,13 @@ export default function Home() {
             }}
           >
             {images.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`Hero ${index}`}
-                className="w-full h-full object-cover flex-shrink-0"
-              />
-            ))}
+  <div key={index} className="w-full h-full flex-shrink-0">
+    <img
+      src={img}
+      className="w-full h-full object-cover block"
+    />
+  </div>
+))}
           </div>
 
         </div>

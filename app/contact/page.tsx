@@ -186,27 +186,7 @@ export default function Contact() {
 
       </section>
 
-      {/* MAP */}
-      <section className="bg-[#f5f1eb] px-6 md:px-12 lg:px-16 pb-16">
-
-        <div className="max-w-[1200px] mx-auto">
-
-          <div className="overflow-hidden rounded-[40px] shadow-md">
-
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d495.1417144317128!2d79.93118611656747!3d6.874578014030078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2510010de8ab1%3A0x24908689f556585f!2sDeskMate!5e0!3m2!1sen!2slk!4v1774341473188!5m2!1sen!2slk"
-              className="w-full h-[350px] md:h-[400px] border-0"
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            ></iframe>
-
-          </div>
-
-        </div>
-
-      </section>
-
+      
       {/* FOOTER */}
       <Footer />
 
