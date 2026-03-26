@@ -228,7 +228,7 @@ export default function Home() {
                   <p className="text-xs sm:text-sm font-semibold text-[#7a2e2e]">
                     {user.name}
                   </p>
-                  <p className="text-[#FFD700] text-sm md:text-base mt-2 tracking-wide">
+                  <p className="text-[#d4af37] text-sm md:text-base mt-2 tracking-wide">
                     ★★★★★
                   </p>
                 </div>
