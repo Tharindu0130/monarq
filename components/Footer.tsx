@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -23,9 +24,19 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Home</h4>
             <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">Products</li>
-              <li className="hover:text-white cursor-pointer">Brands</li>
-              <li className="hover:text-white cursor-pointer">Testimonials</li>
+
+              <li>
+                <Link href="/products" className="hover:text-white">
+                  Products
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/#testimonials" className="hover:text-white">
+                  Testimonials
+                </Link>
+              </li>
+
             </ul>
           </div>
 
@@ -33,10 +44,19 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Products</h4>
             <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">Pens</li>
-              <li className="hover:text-white cursor-pointer">Brands</li>
-              <li className="hover:text-white cursor-pointer">Personalization</li>
-              <li className="hover:text-white cursor-pointer">Books & Stationary</li>
+
+              <li>
+                <Link href="/products" className="hover:text-white">
+                  Pens
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/personalization" className="hover:text-white">
+                  Personalization
+                </Link>
+              </li>
+
             </ul>
           </div>
 
@@ -44,9 +64,19 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Company</h4>
             <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">About Us</li>
-              <li className="hover:text-white cursor-pointer">Contact Us</li>
-              <li className="hover:text-white cursor-pointer">FAQs</li>
+
+              <li>
+                <Link href="/contact" className="hover:text-white">
+                  Contact Us
+                </Link>
+              </li>
+
+              <li>
+                <Link href="/faq" className="hover:text-white">
+                  FAQs
+                </Link>
+              </li>
+
             </ul>
           </div>
 
@@ -54,9 +84,25 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Socials</h4>
             <ul className="space-y-2">
-              <li className="hover:text-white cursor-pointer">Facebook</li>
-              <li className="hover:text-white cursor-pointer">Instagram</li>
-              <li className="hover:text-white cursor-pointer">LinkedIn</li>
+
+              <li>
+                <a href="#" className="hover:text-white">
+                  Facebook
+                </a>
+              </li>
+
+              <li>
+                <a href="#" className="hover:text-white">
+                  Instagram
+                </a>
+              </li>
+
+              <li>
+                <a href="#" className="hover:text-white">
+                  LinkedIn
+                </a>
+              </li>
+
             </ul>
           </div>
 

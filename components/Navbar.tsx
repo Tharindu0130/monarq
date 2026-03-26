@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 
 export default function Navbar() {
@@ -13,6 +14,7 @@ export default function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false);
   const navRef = useRef<HTMLElement | null>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -47,17 +49,26 @@ export default function Navbar() {
 
       {/* Desktop nav */}
       <ul className="hidden md:flex items-center text-sm text-gray-200">
-        {navItems.map((item, index) => (
-          <li key={index} className="flex items-center">
-            <Link href={item.href} className="px-4 hover:text-white transition">
-              {item.name}
-            </Link>
+        {navItems.map((item, index) => {
+          const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+          
+          return (
+            <li key={index} className="flex items-center">
+              <Link
+                href={item.href}
+                className={`px-4 transition ${
+                  isActive ? "text-[#c5a25f] font-semibold" : "hover:text-[#c5a25f]"
+                }`}
+              >
+                {item.name}
+              </Link>
 
-            {index !== navItems.length - 1 && (
-              <span className="text-gray-500">|</span>
-            )}
-          </li>
-        ))}
+              {index !== navItems.length - 1 && (
+                <span className="text-gray-500">|</span>
+              )}
+            </li>
+          );
+        })}
       </ul>
 
       {/* Mobile hamburger */}
@@ -83,18 +94,24 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden absolute left-0 top-full z-50 w-full bg-[#1a1a1a] border-t border-gray-800">
           <ul className="flex flex-col">
-            {navItems.map((item, index) => (
-              <li key={item.href} className="border-b border-gray-800 last:border-b-0">
-                <Link
-                  href={item.href}
-                  onClick={() => setMenuOpen(false)}
-                  className="block px-6 py-3 text-sm text-gray-200 hover:text-white"
-                >
-                  {item.name}
-                </Link>
-                {index !== navItems.length - 1 && <span className="hidden" />}
-              </li>
-            ))}
+            {navItems.map((item, index) => {
+              const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
+
+              return (
+                <li key={item.href} className="border-b border-gray-800 last:border-b-0">
+                  <Link
+                    href={item.href}
+                    onClick={() => setMenuOpen(false)}
+                    className={`block px-6 py-3 text-sm transition ${
+                      isActive ? "text-[#c5a25f] font-semibold bg-gray-900" : "text-gray-200 hover:text-[#c5a25f]"
+                    }`}
+                  >
+                    {item.name}
+                  </Link>
+                  {index !== navItems.length - 1 && <span className="hidden" />}
+                </li>
+              );
+            })}
           </ul>
         </div>
       )}

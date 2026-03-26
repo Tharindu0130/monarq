@@ -20,7 +20,7 @@ export default function Personalization() {
   />
 
 
-  <div className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#7b1e22] text-white px-10 md:px-30 py-20 md:py-33 w-[100%] md:w-[800px] h-[80%] shadow-lg text-center">
+  <div className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#7b1e22] text-white px-8 md:px-24 py-16 md:py-20 w-[92%] md:w-[650px] lg:w-[720px] h-[75%] shadow-lg text-center">
 
 
     <div className="border-t border-white/40 mb-6"></div>

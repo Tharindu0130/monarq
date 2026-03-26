@@ -131,7 +131,7 @@ export default function Contact() {
           </form>
 
           {/* IMAGE */}
-          <div className="flex justify-center md:justify-end">
+          <div className="flex justify-center md:justify-end self-start">
             <img
               src="/contact/form-image.png"
               alt="Luxury pen gift"

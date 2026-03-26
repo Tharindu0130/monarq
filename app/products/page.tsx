@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -16,6 +17,7 @@ function accordionKeyToggle(
 
 const products = [
   {
+    id: "parker-51",
     name: "Parker 51 Fountain Pen",
     price: "Rs.2,000",
     priceValue: 2000,
@@ -27,6 +29,7 @@ const products = [
     personalization: ["Can Be Engraved"],
   },
   {
+    id: "sonnet-intrepid",
     name: "Sonnet Intrepid Journeys Ancient China Edition Ballpoint Pen",
     price: "Rs.10,000",
     priceValue: 10000,
@@ -38,6 +41,7 @@ const products = [
     personalization: ["Can Be Engraved", "30+ Character Engraving"],
   },
   {
+    id: "sonnet-cisele",
     name: "Sonnet Ciselé Special Edition Rollerball Pen",
     price: "Rs.20,000",
     priceValue: 20000,
@@ -49,6 +53,7 @@ const products = [
     personalization: ["Can Be Engraved"],
   },
   {
+    id: "jotter-xl-monochrome",
     name: "Jotter XL Monochrome Ballpoint Pen",
     price: "Rs.5,000",
     priceValue: 5000,
@@ -60,6 +65,7 @@ const products = [
     personalization: ["Can Be Engraved"],
   },
   {
+    id: "urban-fountain-pen",
     name: "Urban Fountain Pen",
     price: "Rs.9,875",
     priceValue: 9875,
@@ -71,6 +77,7 @@ const products = [
     personalization: ["Can Be Engraved"],
   },
   {
+    id: "jotter-global-icons",
     name: "Jotter Global Icons Ballpoint Pen",
     price: "Rs.11,500",
     priceValue: 11500,
@@ -82,6 +89,7 @@ const products = [
     personalization: ["Can Be Engraved", "30+ Character Engraving"],
   },
   {
+    id: "lamy-lx-marron",
     name: "LAMY Lx Ballpoint Pen marron",
     price: "Rs.13,100",
     priceValue: 13100,
@@ -93,6 +101,7 @@ const products = [
     personalization: ["Can Be Engraved"],
   },
   {
+    id: "lamy-safari-aquasky",
     name: "LAMY safari Ballpoint Pen aquasky",
     price: "Rs.4,700",
     priceValue: 4700,
@@ -104,6 +113,7 @@ const products = [
     personalization: ["Can Be Engraved"],
   },
   {
+    id: "lamy-scala-black",
     name: "LAMY scala Fountain Pen black",
     price: "Rs.38,700",
     priceValue: 38700,
@@ -115,6 +125,7 @@ const products = [
     personalization: ["Can Be Engraved", "30+ Character Engraving"],
   },
   {
+    id: "meisterstuck-149",
     name: "Meisterstück Platinum-Coated 149 Fountain Pen",
     price: "Rs.15,200",
     priceValue: 15200,
@@ -126,6 +137,7 @@ const products = [
     personalization: ["Can Be Engraved"],
   },
   {
+    id: "meisterstuck-legrand",
     name: "Meisterstück Gold-Coated LeGrand Rollerball",
     price: "Rs.24,700",
     priceValue: 24700,
@@ -137,6 +149,7 @@ const products = [
     personalization: ["Can Be Engraved"],
   },
   {
+    id: "montblanc-heritage-rouge-noir",
     name: "Montblanc Heritage Collection Rouge et Noir Special Edition Rollerball",
     price: "Rs.50,000",
     priceValue: 50000,
@@ -568,10 +581,14 @@ export default function ProductsPage() {
 
             <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-5">
               {filteredProducts.map((product) => (
-                <article
-                  key={product.name}
-                  className="rounded-2xl border border-[#7a2d2d]/35 bg-[#fdf8f1] px-4 pt-4 pb-3 min-h-[270px] shadow-sm"
+                <Link
+                  key={product.id}
+                  href={`/products/${product.id}`}
+                  className="block"
                 >
+                  <article
+                    className="rounded-2xl border border-[#7a2d2d]/35 bg-[#fdf8f1] px-4 pt-4 pb-3 min-h-[270px] shadow-sm transition-transform duration-200 hover:-translate-y-1 hover:shadow-md hover:border-[#c5a25f]"
+                  >
                   <div className="h-[150px] md:h-[165px] flex items-center justify-center mb-2">
                     <img
                       src={product.image}
@@ -596,7 +613,8 @@ export default function ProductsPage() {
                       />
                     ))}
                   </div>
-                </article>
+                  </article>
+                </Link>
               ))}
             </div>
             {filteredProducts.length === 0 && (

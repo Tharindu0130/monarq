@@ -43,171 +43,152 @@ export default function Home() {
             }}
           >
             {images.map((img, index) => (
-  <div key={index} className="w-full h-full flex-shrink-0">
-    <img
-      src={img}
-      className="w-full h-full object-cover block"
-    />
-  </div>
-))}
+              <div key={index} className="w-full h-full flex-shrink-0">
+                <img
+                  src={img}
+                  className="w-full h-full object-cover block"
+                />
+              </div>
+            ))}
           </div>
 
         </div>
       </section>
 
-     {/* ABOUT */}
-<section className="px-6 md:px-12 lg:px-16 py-12 md:py-20 bg-[#f5f1eb]">
+      {/* ABOUT */}
+      <section className="px-6 md:px-12 lg:px-16 py-12 md:py-20 bg-[#f5f1eb]">
 
-  <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 md:gap-0 max-w-[1600px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 md:gap-0 max-w-[1600px] mx-auto">
 
-   
-    <div className="flex justify-center md:justify-start order-1">
-      <img
-        src="/pen-left.png"
-        alt="Luxury pen"
-        className="w-[100px] sm:w-[120px] md:w-[140px] object-contain"
-      />
-    </div>
 
-  
-    <div className="text-center md:text-left max-w-[700px] px-4 md:px-0 order-2 mb-6 md:mb-0">
+          <div className="flex justify-center md:justify-start order-1">
+            <img
+              src="/pen-left.png"
+              alt="Luxury pen"
+              className="w-[100px] sm:w-[150px] md:w-[190px] object-contain"
+            />
+          </div>
 
-  <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-serif font-semibold text-[#2c2c2c] mb-4 md:mb-5">
-    Crafted to Impress. Personalized to Remember.
-  </h2>
 
-  <p className="text-[14px] sm:text-[15px] leading-6 md:leading-7 text-gray-600">
-    Experience the art of giving with our collection of luxury pens,
-    designed for those who value elegance and meaning. Each pen is a
-    masterpiece, crafted from the finest materials and fully customizable
-    with your choice of engraving. From celebrating milestones to showing
-    appreciation, our pens transform every gift into a lasting memory.
-    Elevate your special moments with a touch of sophistication, and give a
-    gift that truly speaks from the heart.
-  </p>
+          <div className="text-center md:text-left max-w-[700px] px-4 md:px-0 order-2 mb-6 md:mb-0">
 
-</div>
+            <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-serif font-semibold text-[#2c2c2c] mb-4 md:mb-5">
+              Crafted to Impress. Personalized to Remember.
+            </h2>
 
-    {/* RIGHT IMAGE */}
-    <div className="flex justify-center md:justify-end order-3">
-      <img
-        src="/pen-writing.png"
-        alt="Writing pen"
-        className="w-[180px] sm:w-[200px] md:w-[220px] h-auto md:h-[300px] object-cover rounded-[120px]"
-      />
-    </div>
+            <p className="text-[14px] sm:text-[15px] leading-6 md:leading-7 text-gray-600 text-justify">
+              Experience the art of giving with our collection of luxury pens,
+              designed for those who value elegance and meaning. Each pen is a
+              masterpiece, crafted from the finest materials and fully customizable
+              with your choice of engraving. From celebrating milestones to showing
+              appreciation, our pens transform every gift into a lasting memory.
+              Elevate your special moments with a touch of sophistication, and give a
+              gift that truly speaks from the heart.
+            </p>
 
-  </div>
+          </div>
 
-</section>
+          {/* RIGHT IMAGE */}
+          <div className="flex justify-center md:justify-end order-3">
+            <img
+              src="/pen-writing.png"
+              alt="Writing pen"
+              className="w-[180px] sm:w-[200px] md:w-[220px] h-auto md:h-[300px] object-cover rounded-[120px]"
+            />
+          </div>
 
-     {/* PRODUCTS */}
-<section className="px-6 md:px-10 pt-12 md:pt-16 pb-8 md:pb-12 bg-[#d6cec4]">
-
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12 justify-items-center">
-
-    {/* CARD 1 */}
-    <div className="group relative w-full max-w-[340px] h-[260px] sm:h-[300px] md:h-[320px] lg:h-[340px] rounded-xl overflow-hidden shadow-md">
-
-      <img
-        src="/card1.png"
-        alt="Lamy pen"
-        className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-      />
-
-      <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-center px-6">
-
-        <h3 className="text-[#d4af37] font-semibold text-lg mb-4 tracking-wide">
-          WATERMAN
-        </h3>
-
-        <p className="text-gray-200 text-sm leading-6 mb-6">
-          Experience refined craftsmanship with Waterman Paris, where luxury meets precision. Designed for smooth, effortless writing and finished with sophisticated detailing, each pen is perfect for meaningful gifting. Personalize it with custom engraving to create a gift that leaves a lasting impression.
-        </p>
-
-        <div className="absolute bottom-4 right-5">
-          <p className="text-white text-sm cursor-pointer hover:underline">
-            See All →
-          </p>
         </div>
 
-      </div>
+      </section>
 
-    </div>
+      {/* PRODUCTS */}
+      <section className="px-6 md:px-10 pt-12 md:pt-16 pb-8 md:pb-12 bg-[#d6cec4]">
 
-    {/* CARD 2 */}
-    <div className="group relative w-full max-w-[340px] h-[260px] sm:h-[300px] md:h-[320px] lg:h-[340px] rounded-xl overflow-hidden shadow-md">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12 justify-items-center">
 
-      <img
-        src="/card2.png"
-        alt="Gift pen box"
-        className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-      />
+          {/* CARD 1 */}
+          <div className="group relative w-full max-w-[340px] h-[260px] sm:h-[300px] md:h-[320px] lg:h-[340px] rounded-xl overflow-hidden shadow-md">
 
-      <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-center px-6">
+            <img
+              src="/card1.png"
+              alt="Lamy pen"
+              className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+            />
 
-        <h3 className="text-[#d4af37] font-semibold text-lg mb-4 tracking-wide">
-          PARKER
-        </h3>
+            <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-center px-6">
 
-        <p className="text-gray-200 text-sm leading-6 mb-6">
-         Renowned for its heritage and innovation, Parker pens represent timeless style and exceptional craftsmanship. With smooth performance and refined finishes, each pen is designed to deliver a superior writing experience. Personalize it with custom engraving to create a distinguished gift that speaks of success and sophistication.
-        </p>
+              <h3 className="text-[#d4af37] font-semibold text-lg mb-4 tracking-wide">
+                WATERMAN
+              </h3>
 
-        <div className="absolute bottom-4 right-5">
-          <p className="text-white text-sm cursor-pointer hover:underline">
-            See All →
-          </p>
+              <p className="text-gray-200 text-sm leading-6 mb-6">
+                Experience refined craftsmanship with Waterman Paris, where luxury meets precision. Designed for smooth, effortless writing and finished with sophisticated detailing, each pen is perfect for meaningful gifting. Personalize it with custom engraving to create a gift that leaves a lasting impression.
+              </p>
+
+
+
+            </div>
+
+          </div>
+
+          {/* CARD 2 */}
+          <div className="group relative w-full max-w-[340px] h-[260px] sm:h-[300px] md:h-[320px] lg:h-[340px] rounded-xl overflow-hidden shadow-md">
+
+            <img
+              src="/card2.png"
+              alt="Gift pen box"
+              className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+            />
+
+            <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-center px-6">
+
+              <h3 className="text-[#d4af37] font-semibold text-lg mb-4 tracking-wide">
+                PARKER
+              </h3>
+
+              <p className="text-gray-200 text-sm leading-6 mb-6">
+                Renowned for its heritage and innovation, Parker pens represent timeless style and exceptional craftsmanship. With smooth performance and refined finishes, each pen is designed to deliver a superior writing experience. Personalize it with custom engraving to create a distinguished gift that speaks of success and sophistication.
+              </p>
+
+
+
+            </div>
+
+          </div>
+
+          {/* CARD 3 */}
+          <div className="group relative w-full max-w-[340px] h-[260px] sm:h-[300px] md:h-[320px] lg:h-[340px] rounded-xl overflow-hidden shadow-md">
+
+            <img
+              src="/card3.png"
+              alt="Pelikan pen"
+              className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+            />
+
+            <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-center px-6">
+
+              <h3 className="text-[#d4af37] font-semibold text-lg mb-4 tracking-wide">
+                MONT BLANC
+              </h3>
+
+              <p className="text-gray-200 text-sm leading-6 mb-6">
+                A symbol of excellence and prestige, Montblanc pens embody master craftsmanship and timeless elegance. Meticulously crafted with premium materials and iconic design, each piece delivers an unmatched writing experience. Personalize your Montblanc pen with custom engraving to create a truly distinguished gift that reflects success, refinement, and lasting legacy.
+              </p>
+
+
+
+            </div>
+
+          </div>
+
         </div>
 
-      </div>
-
-    </div>
-
-    {/* CARD 3 */}
-    <div className="group relative w-full max-w-[340px] h-[260px] sm:h-[300px] md:h-[320px] lg:h-[340px] rounded-xl overflow-hidden shadow-md">
-
-      <img
-        src="/card3.png"
-        alt="Pelikan pen"
-        className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-      />
-
-      <div className="absolute inset-0 bg-black/90 opacity-0 group-hover:opacity-100 transition duration-500 flex flex-col justify-center items-center text-center px-6">
-
-        <h3 className="text-[#d4af37] font-semibold text-lg mb-4 tracking-wide">
-          MONT BLANC
-        </h3>
-
-        <p className="text-gray-200 text-sm leading-6 mb-6">
-          A symbol of excellence and prestige, Montblanc pens embody master craftsmanship and timeless elegance. Meticulously crafted with premium materials and iconic design, each piece delivers an unmatched writing experience. Personalize your Montblanc pen with custom engraving to create a truly distinguished gift that reflects success, refinement, and lasting legacy.
-        </p>
-
-        <div className="absolute bottom-4 right-5">
-          <p className="text-white text-sm cursor-pointer hover:underline">
-            See All →
-          </p>
+        {/* Brand logos */}
+        <div className="flex justify-center">
+          <img src="/brands.png" alt="Brand logos" className="w-full max-w-[400px] md:max-w-[600px]" />
         </div>
 
-      </div>
-
-    </div>
-
-  </div>
-
-  {/* Brand logos */}
-  <div className="flex justify-center">
-    <img src="/brands.png" alt="Brand logos" className="w-full max-w-[400px] md:max-w-[600px]" />
-  </div>
-
-  {/* Explore link */}
-  <div className="flex justify-center mt-6 mb-12 md:mb-16">
-    <p className="text-sm md:text-base text-[#7a2e2e] font-semibold hover:underline cursor-pointer">
-      Explore Our Brands →
-    </p>
-  </div>
-
-</section>
+      </section>
       {/* TESTIMONIALS */}
       <section className="px-6 md:px-10 pt-8 md:pt-10 pb-16 md:pb-20 text-center relative">
 
@@ -230,7 +211,7 @@ export default function Home() {
 
             <div
               key={i}
-              className="bg-[#bfb4aa] p-4 sm:p-6 rounded-xl shadow-[8px_10px_0px_rgba(180,120,120,0.3)] hover:shadow-[10px_14px_0px_rgba(180,120,120,0.4)] transition duration-300 w-full max-w-[260px] mx-auto text-left"
+              className="bg-[#B8AFA6] p-4 sm:p-6 rounded-xl shadow-[8px_10px_0px_rgba(180,120,120,0.3)] hover:shadow-[10px_14px_0px_rgba(180,120,120,0.4)] transition duration-300 w-full max-w-[260px] mx-auto text-left"
             >
 
               <p className="text-xs sm:text-sm mb-6 sm:mb-8">"{user.text}"</p>
@@ -243,11 +224,13 @@ export default function Home() {
                   className="w-9 h-9 sm:w-10 sm:h-10 rounded-full object-cover flex-shrink-0"
                 />
 
-                <div className="flex items-center gap-2">
-                  <p className="text-xs sm:text-sm font-semibold text-[#7a2e2e] whitespace-nowrap">
+                <div>
+                  <p className="text-xs sm:text-sm font-semibold text-[#7a2e2e]">
                     {user.name}
                   </p>
-                  <p className="text-yellow-500 text-xs whitespace-nowrap">★★★★★</p>
+                  <p className="text-[#FFD700] text-sm md:text-base mt-2 tracking-wide">
+                    ★★★★★
+                  </p>
                 </div>
 
               </div>
@@ -261,34 +244,34 @@ export default function Home() {
         <img
           src="/gold-pen.png"
           alt="Decorative pen"
-          className="hidden md:block absolute top-0 right-0 md:right-10 w-[100px] sm:w-[100px] md:w-[120px]"
+          className="hidden md:block absolute top-[-1px] right-0 md:right-10 w-[140px] sm:w-[140px] md:w-[190px] lg:w-[220px]"
         />
 
       </section>
 
       {/* WHATSAPP FLOAT BUTTON */}
-<a
-  href="https://wa.me/94713515220" 
-  target="_blank"
-  rel="noopener noreferrer"
-  className="fixed bottom-6 right-6 z-50"
->
-  <div className="bg-green-500 hover:bg-green-600 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition duration-300">
+      <a
+        href="https://wa.me/94713515220"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50"
+      >
+        <div className="bg-green-500 hover:bg-green-600 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition duration-300">
 
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 32 32"
-      fill="white"
-      className="w-7 h-7"
-    >
-      <path d="M16 .396C7.163.396 0 7.559 0 16.396c0 2.89.757 5.607 2.078 7.96L.081 32l7.822-2.048a15.93 15.93 0 0 0 8.097 2.207c8.837 0 16-7.163 16-16S24.837.396 16 .396zm0 29.05c-2.522 0-4.87-.735-6.852-2.002l-.49-.31-4.644 1.216 1.24-4.525-.32-.516A13.92 13.92 0 0 1 2.08 16.396c0-7.673 6.247-13.92 13.92-13.92 7.673 0 13.92 6.247 13.92 13.92 0 7.673-6.247 13.92-13.92 13.92zm7.676-10.363c-.42-.21-2.487-1.228-2.872-1.367-.385-.14-.665-.21-.945.21-.28.42-1.085 1.367-1.33 1.647-.245.28-.49.315-.91.105-.42-.21-1.776-.655-3.383-2.087-1.25-1.116-2.095-2.49-2.34-2.91-.245-.42-.026-.647.184-.857.19-.19.42-.49.63-.735.21-.245.28-.42.42-.7.14-.28.07-.525-.035-.735-.105-.21-.945-2.275-1.295-3.115-.34-.816-.685-.705-.945-.718l-.805-.014c-.28 0-.735.105-1.12.525s-1.47 1.437-1.47 3.505c0 2.067 1.505 4.065 1.715 4.345.21.28 2.96 4.52 7.18 6.337 1.003.433 1.785.69 2.395.883 1.006.32 1.92.275 2.644.167.807-.12 2.487-1.015 2.837-1.995.35-.98.35-1.82.245-1.995-.105-.175-.385-.28-.805-.49z"/>
-    </svg>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 32 32"
+            fill="white"
+            className="w-7 h-7"
+          >
+            <path d="M16 .396C7.163.396 0 7.559 0 16.396c0 2.89.757 5.607 2.078 7.96L.081 32l7.822-2.048a15.93 15.93 0 0 0 8.097 2.207c8.837 0 16-7.163 16-16S24.837.396 16 .396zm0 29.05c-2.522 0-4.87-.735-6.852-2.002l-.49-.31-4.644 1.216 1.24-4.525-.32-.516A13.92 13.92 0 0 1 2.08 16.396c0-7.673 6.247-13.92 13.92-13.92 7.673 0 13.92 6.247 13.92 13.92 0 7.673-6.247 13.92-13.92 13.92zm7.676-10.363c-.42-.21-2.487-1.228-2.872-1.367-.385-.14-.665-.21-.945.21-.28.42-1.085 1.367-1.33 1.647-.245.28-.49.315-.91.105-.42-.21-1.776-.655-3.383-2.087-1.25-1.116-2.095-2.49-2.34-2.91-.245-.42-.026-.647.184-.857.19-.19.42-.49.63-.735.21-.245.28-.42.42-.7.14-.28.07-.525-.035-.735-.105-.21-.945-2.275-1.295-3.115-.34-.816-.685-.705-.945-.718l-.805-.014c-.28 0-.735.105-1.12.525s-1.47 1.437-1.47 3.505c0 2.067 1.505 4.065 1.715 4.345.21.28 2.96 4.52 7.18 6.337 1.003.433 1.785.69 2.395.883 1.006.32 1.92.275 2.644.167.807-.12 2.487-1.015 2.837-1.995.35-.98.35-1.82.245-1.995-.105-.175-.385-.28-.805-.49z" />
+          </svg>
 
-  </div>
-</a>
+        </div>
+      </a>
 
-<Footer />
+      <Footer />
     </main>
-    
+
   );
 }
