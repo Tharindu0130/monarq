@@ -57,7 +57,7 @@ export default function Navbar() {
               <Link
                 href={item.href}
                 className={`px-4 transition ${
-                  isActive ? "text-[#c5a25f] font-semibold" : "hover:text-[#c5a25f]"
+                  isActive ? "text-[#d4af37] font-semibold" : "hover:text-[#d4af37]"
                 }`}
               >
                 {item.name}
