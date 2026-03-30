@@ -135,7 +135,7 @@ export default function Contact() {
             <img
               src="/contact/form-image.png"
               alt="Luxury pen gift"
-              className="w-[300px] md:w-[350px] lg:w-[400px] rounded-[40px] object-cover"
+              className="w-[300px] md:w-[350px] lg:w-[320px] rounded-[40px] object-cover"
             />
           </div>
 

@@ -58,14 +58,14 @@ export default function Home() {
       {/* ABOUT */}
       <section className="px-6 md:px-12 lg:px-16 py-12 md:py-20 bg-[#f5f1eb]">
 
-        <div className="grid grid-cols-1 md:grid-cols-3 items-center gap-8 md:gap-0 max-w-[1600px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] xl:grid-cols-[1fr_2fr_1fr] items-center gap-8 md:gap-4 max-w-[1600px] mx-auto">
 
 
           <div className="flex justify-center md:justify-start order-1">
             <img
               src="/pen-left.png"
               alt="Luxury pen"
-              className="w-[100px] sm:w-[150px] md:w-[190px] object-contain"
+              className="w-[140px] sm:w-[180px] md:w-[260px] lg:w-[290px] object-contain"
             />
           </div>
 
@@ -93,7 +93,7 @@ export default function Home() {
             <img
               src="/pen-writing.png"
               alt="Writing pen"
-              className="w-[180px] sm:w-[200px] md:w-[220px] h-auto md:h-[300px] object-cover rounded-[120px]"
+              className="w-[260px] h-[360px] object-cover rounded-[120px]"
             />
           </div>
 
@@ -103,6 +103,11 @@ export default function Home() {
 
       {/* PRODUCTS */}
       <section className="px-6 md:px-10 pt-12 md:pt-16 pb-8 md:pb-12 bg-[#d6cec4]">
+        <div className="text-center mb-10 md:mb-12">
+          <h2 className="text-[40px] md:text-[30px] font-serif font-bold text-[#7b1e22]">
+            Our Brands
+          </h2>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-12 justify-items-center">
 
@@ -190,9 +195,9 @@ export default function Home() {
 
       </section>
       {/* TESTIMONIALS */}
-      <section className="px-6 md:px-10 pt-8 md:pt-10 pb-16 md:pb-20 text-center relative">
+      <section id="testimonials" className="px-6 md:px-10 pt-8 md:pt-10 pb-16 md:pb-20 text-center relative">
 
-        <h3 className="text-xl md:text-2xl font-semibold mb-2 font-serif">
+        <h3 className="text-xl md:pt-5 md:text-3xl font-semibold mb-2 font-serif">
           Testimonials
         </h3>
 
@@ -200,7 +205,7 @@ export default function Home() {
           What our customers saying about us.
         </p>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 md:pt-5 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 max-w-[1200px] mx-auto">
 
           {[
             { name: "Michael T.", img: "/user1.png", text: "From ordering to delivery, the experience was seamless. The packaging alone felt premium, and the pen writes beautifully. Highly recommend for anyone looking for a memorable gift." },
@@ -228,7 +233,7 @@ export default function Home() {
                   <p className="text-xs sm:text-sm font-semibold text-[#7a2e2e]">
                     {user.name}
                   </p>
-                  <p className="text-[#d4af37] text-sm md:text-base mt-2 tracking-wide">
+                  <p className="text-[#FFD700] text-sm md:text-base mt-2 tracking-wide">
                     ★★★★★
                   </p>
                 </div>
@@ -244,7 +249,7 @@ export default function Home() {
         <img
           src="/gold-pen.png"
           alt="Decorative pen"
-          className="hidden md:block absolute top-[-1px] right-0 md:right-10 w-[140px] sm:w-[140px] md:w-[190px] lg:w-[220px]"
+          className="hidden md:block absolute top-[-1px] right-0 md:right-10 w-[130px] sm:w-[140px] md:w-[190px] lg:w-[190px]"
         />
 
       </section>

@@ -54,6 +54,7 @@ const gallery = [
 
 export default function ProductDetailClient({ productId }: { productId: string }) {
   const [qty, setQty] = useState(1);
+  const [mainImage, setMainImage] = useState(gallery[0]);
 
 
 
@@ -82,18 +83,24 @@ export default function ProductDetailClient({ productId }: { productId: string }
             {/* THUMBNAILS */}
             <div className="flex md:flex-col gap-4">
               {gallery.map((img) => (
-                <div key={img} className="w-14 h-14 border border-[#e2d8cc] p-1">
+                <button
+                  key={img}
+                  onClick={() => setMainImage(img)}
+                  className={`w-14 h-14 border p-1 cursor-pointer transition-all ${
+                    mainImage === img ? "border-black scale-105" : "border-[#e2d8cc]"
+                  }`}
+                >
                   <img src={img} alt="Thumbnail view" className="w-full h-full object-cover" />
-                </div>
+                </button>
               ))}
             </div>
 
             {/* IMAGE */}
-            <div className="flex justify-center">
+            <div className="flex justify-center items-center">
               <img
-                src="/parker/parker-pen.png"
+                src={mainImage}
                 alt={product.name}
-                className="w-[180px] md:w-[200px]"
+                className="w-[180px] md:w-[250px] object-contain"
               />
             </div>
 
@@ -175,9 +182,14 @@ export default function ProductDetailClient({ productId }: { productId: string }
                 </button>
 
               </div>
-              <button className="mt-5 w-full bg-[#c5a25f] py-3 text-sm font-semibold rounded-md cursor-pointer hover:bg-[#b8964f] transition">
-                Add To Cart
-              </button>
+              <div className="mt-5 flex gap-4 w-full">
+                <button className="flex-1 bg-transparent border border-[#7a2e2e] text-[#7a2e2e] py-2.5 text-sm font-semibold rounded-full cursor-pointer hover:bg-[#7a2e2e] hover:text-white transition">
+                  Buy Now
+                </button>
+                <button className="flex-1 bg-[#c6a55c] text-[#7a2e2e] py-2.5 text-sm font-semibold rounded-full cursor-pointer hover:bg-[#b8964f] transition flex items-center justify-center gap-2">
+                  <i className="fa-solid fa-cart-shopping"></i> Add To Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>
