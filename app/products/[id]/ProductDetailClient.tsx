@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useCart } from "@/components/CartContext";
 
 // PRODUCTS ARRAY
 const products = [
@@ -58,7 +59,7 @@ export default function ProductDetailClient({ productId }: { productId: string }
 
 
 
-
+const { addToCart } = useCart();
 
   // RELATED PRODUCTS
   const relatedProducts = useMemo(() => {
@@ -186,13 +187,26 @@ export default function ProductDetailClient({ productId }: { productId: string }
                 <button className="flex-1 bg-transparent border border-[#7a2e2e] text-[#7a2e2e] py-2.5 text-sm font-semibold rounded-full cursor-pointer hover:bg-[#7a2e2e] hover:text-white transition">
                   Buy Now
                 </button>
-                <button className="flex-1 bg-[#c6a55c] text-[#7a2e2e] py-2.5 text-sm font-semibold rounded-full cursor-pointer hover:bg-[#b8964f] transition flex items-center justify-center gap-2">
-                  <i className="fa-solid fa-cart-shopping"></i> Add To Cart
-                </button>
+                <button
+  onClick={() =>
+    addToCart({
+      id: product.id,
+      name: product.name,
+      price: Number(product.price.replace(/[^0-9]/g, "")),
+      image: product.image,
+      quantity: qty,
+    })
+  }
+  className="flex-1 bg-[#c6a55c] text-[#7a2e2e] py-2.5 text-sm font-semibold rounded-full cursor-pointer hover:bg-[#b8964f] transition flex items-center justify-center gap-2"
+>
+  <i className="fa-solid fa-cart-shopping"></i> Add To Cart
+</button>
               </div>
             </div>
           </div>
         </div>
+
+        
       </section>
 
       {/* PRODUCT DETAILS */}
