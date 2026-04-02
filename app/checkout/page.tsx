@@ -6,6 +6,7 @@ import { useCart } from "@/components/CartContext";
 import { useSearchParams } from "next/navigation";
 import { Suspense, useState, ChangeEvent } from "react";
 import { SRI_LANKA_LOCATIONS } from "@/data/sri_lanka_locations";
+import emailjs from "@emailjs/browser";
 
 function CheckoutContent() {
   const { cart, removeFromCart, updateQuantity } = useCart();
@@ -53,17 +54,37 @@ function CheckoutContent() {
   ) || 0;
 
   // Form State
-  const [isEditable, setIsEditable] = useState(false);
+  const [isEditable, setIsEditable] = useState(true);
+  const [hasSaved, setHasSaved] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     province: "",
     phone: "",
     district: "",
-    address: "No:20/A St. Gardens lane, ragama"
+    address: ""
   });
 
   const handleSave = () => {
+    // 1. Basic non-empty validation
+    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.address.trim()) {
+      alert("Please fill in all required fields (Name, Phone, and Address) before saving.");
+      return;
+    }
+
+    // 2. Email validation (if provided)
+    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      alert("Please enter a valid email address (e.g., name@example.com).");
+      return;
+    }
+
+    // 3. Phone validation (Sri Lankan mobile format)
+    if (!/^(?:\+94|0)?7[0-9]{8}$/.test(formData.phone.trim())) {
+      alert("Please enter a valid Sri Lankan phone number (e.g., 07XXXXXXXX).");
+      return;
+    }
+
+    setHasSaved(true);
     setIsEditable(false);
   };
 
@@ -93,25 +114,55 @@ function CheckoutContent() {
 
   const [showSuccess, setShowSuccess] = useState(false);
 
-  const handleProceedToPay = () => {
-    // 1. Validate fields
-    if (!formData.fullName.trim() || !formData.phone.trim() || !formData.address.trim()) {
-      return;
-    }
+  const handleProceedToPay = async () => {
+  if (!formData.fullName.trim() || !formData.phone.trim() || !formData.address.trim()) {
+    alert("Please fill in all required contact details before proceeding.");
+    return;
+  }
 
-    // 2. Show success message
+  if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    alert("Invalid email format. Please edit your contact info.");
+    return;
+  }
+
+  if (!/^(?:\+94|0)?7[0-9]{8}$/.test(formData.phone.trim())) {
+    alert("Invalid phone number. Please enter a valid Sri Lankan number.");
+    return;
+  }
+
+  const orderItems = items.map(item =>
+    `${item.name} (Qty: ${item.quantity}) - Rs.${item.price.toLocaleString()}`
+  ).join("\n");
+
+  const totalWithDelivery = total + 200;
+
+  const orderedDate = new Date().toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric'
+  });
+
+  try {
+    // ✅ SEND EMAIL FIRST
+    await emailjs.send(
+      "service_alm7rgg",
+      "template_efvm3i5",
+      {
+        name: formData.fullName,
+        phone: formData.phone,
+        email: formData.email,
+        address: formData.address,
+        order: orderItems,
+        total: totalWithDelivery,
+        date: orderedDate
+      },
+      "IdzwzMw0_Z1I4vmAn"
+    );
+
+    // ✅ SHOW SUCCESS UI
     setShowSuccess(true);
 
-    // 3. Prepare WhatsApp Message
-    const orderItems = items.map(item => `* ${item.name} (Qty: ${item.quantity}) - Rs.${item.price.toLocaleString()}`).join("\n");
-    const totalWithDelivery = total + 200;
-
-    const orderedDate = new Date().toLocaleDateString('en-GB', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
-
+    // ✅ WHATSAPP MESSAGE
     const message = `🛒 *New Order*
 
 Date: ${orderedDate}
@@ -130,12 +181,16 @@ Total: Rs.${totalWithDelivery.toLocaleString()}`;
 
     const whatsappUrl = `https://wa.me/94776706481?text=${encodeURIComponent(message)}`;
 
-    // 4. Redirect after delay
     setTimeout(() => {
       window.open(whatsappUrl, "_blank");
       setShowSuccess(false);
     }, 1500);
-  };
+
+  } catch (error) {
+    console.error(error);
+    alert("Failed to send order. Please try again.");
+  }
+};
 
   return (
     <main className="bg-[#f5f1eb] min-h-screen flex flex-col relative">
@@ -266,8 +321,8 @@ Total: Rs.${totalWithDelivery.toLocaleString()}`;
             <div className="mt-10 flex gap-2 sm:gap-4">
               <button
                 onClick={handleEdit}
-                disabled={isEditable}
-                className={`flex-1 ${!isEditable ? 'bg-[#c5a35d] text-[#7a2e2e] hover:bg-[#b8954f]' : 'bg-transparent border border-[#c5a35d] text-[#c5a35d] opacity-50 cursor-not-allowed'} py-3.5 rounded-lg font-bold text-[16px] transition`}
+                disabled={isEditable || !hasSaved}
+                className={`flex-1 ${(!isEditable && hasSaved) ? 'bg-[#c5a35d] text-[#7a2e2e] hover:bg-[#b8954f]' : 'bg-transparent border border-[#c5a35d] text-[#c5a35d] opacity-50 cursor-not-allowed'} py-3.5 rounded-lg font-bold text-[16px] transition`}
               >
                 Edit
               </button>
