@@ -5,8 +5,10 @@ import Footer from "@/components/Footer";
 import { useCart } from "@/components/CartContext";
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function CartPage() {
+  const router = useRouter();
   const { cart, removeFromCart, updateQuantity } = useCart();
   const [selectedItems, setSelectedItems] = useState<Set<string>>(new Set());
 
@@ -169,7 +171,10 @@ export default function CartPage() {
                 </span>
               </div>
 
-              <button className="w-full bg-[#c6a55c] text-[#7a2e2e] font-semibold py-3 rounded-lg hover:bg-[#b8964f] hover:text-white transition">
+              <button 
+                onClick={() => router.push('/checkout')}
+                className="w-full bg-[#c6a55c] text-[#7a2e2e] font-semibold py-3 rounded-lg hover:bg-[#b8964f] hover:text-white transition"
+              >
                 Procced to Pay
               </button>
             </div>

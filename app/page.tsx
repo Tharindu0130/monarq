@@ -56,7 +56,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT */}
-      <section className="px-6 md:px-12 lg:px-16 py-12 md:py-20 bg-[#f5f1eb]">
+      <section className="px-4 sm:px-6 md:px-12 lg:px-16 py-12 md:py-20 bg-[#f5f1eb]">
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1.5fr_1fr] xl:grid-cols-[1fr_2fr_1fr] items-center gap-8 md:gap-4 max-w-[1600px] mx-auto">
 
@@ -70,9 +70,8 @@ export default function Home() {
           </div>
 
 
-          <div className="text-center md:text-left max-w-[700px] px-4 md:px-0 order-2 mb-6 md:mb-0">
-
-            <h2 className="text-[22px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-serif font-semibold text-[#2c2c2c] mb-4 md:mb-5">
+          <div className="text-center md:text-left max-w-[700px] md:px-0 order-2 mb-6 md:mb-0">
+            <h2 className="text-[18px] sm:text-[24px] md:text-[26px] lg:text-[28px] font-serif font-semibold text-[#2c2c2c] mb-4 md:mb-5">
               Crafted to Impress. Personalized to Remember.
             </h2>
 
@@ -102,9 +101,9 @@ export default function Home() {
       </section>
 
       {/* PRODUCTS */}
-      <section className="px-6 md:px-10 pt-12 md:pt-16 pb-8 md:pb-12 bg-[#d6cec4]">
+      <section className="px-4 sm:px-6 md:px-10 pt-12 md:pt-16 pb-8 md:pb-12 bg-[#d6cec4]">
         <div className="text-center mb-10 md:mb-12">
-          <h2 className="text-[40px] md:text-[30px] font-serif font-bold text-[#7b1e22]">
+          <h2 className="text-[28px] md:text-[30px] font-serif font-bold text-[#7b1e22]">
             Our Brands
           </h2>
         </div>
@@ -190,12 +189,12 @@ export default function Home() {
 
         {/* Brand logos */}
         <div className="flex justify-center">
-          <img src="/brands.png" alt="Brand logos" className="w-full max-w-[400px] md:max-w-[600px]" />
+          <img src="/brands.png" alt="Brand logos" className="w-full max-w-[320px] sm:max-w-[400px] md:max-w-[600px] object-contain" />
         </div>
 
       </section>
       {/* TESTIMONIALS */}
-      <section id="testimonials" className="px-6 md:px-10 pt-8 md:pt-10 pb-16 md:pb-20 text-center relative">
+      <section id="testimonials" className="px-4 sm:px-6 md:px-10 pt-8 md:pt-10 pb-16 md:pb-20 text-center relative">
 
         <h3 className="text-xl md:pt-5 md:text-3xl font-semibold mb-2 font-serif">
           Testimonials
@@ -259,7 +258,7 @@ export default function Home() {
         href="https://wa.me/94713515220"
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50"
+        className="fixed bottom-6 right-4 sm:right-6 z-50"
       >
         <div className="bg-green-500 hover:bg-green-600 w-14 h-14 rounded-full flex items-center justify-center shadow-lg transition duration-300">
 

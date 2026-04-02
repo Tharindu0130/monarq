@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useCart } from "@/components/CartContext";
 
 // PRODUCTS ARRAY
@@ -54,12 +55,11 @@ const gallery = [
 ];
 
 export default function ProductDetailClient({ productId }: { productId: string }) {
+  const router = useRouter();
   const [qty, setQty] = useState(1);
   const [mainImage, setMainImage] = useState(gallery[0]);
-
-
-
-const { addToCart } = useCart();
+  
+  const { addToCart } = useCart();
 
   // RELATED PRODUCTS
   const relatedProducts = useMemo(() => {
@@ -78,16 +78,16 @@ const { addToCart } = useCart();
 
       {/* MAIN */}
       <section className="w-full py-10">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-16">
-          <div className="grid md:grid-cols-[100px_1fr_1fr] gap-10">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-16">
+          <div className="grid md:grid-cols-[100px_1fr_1fr] gap-6 md:gap-10">
 
-            {/* THUMBNAILS */}
-            <div className="flex md:flex-col gap-4">
+            {/* THUMBNAILS - Enabled horizontal scroll for narrow screens */}
+            <div className="flex md:flex-col gap-3 overflow-x-auto md:overflow-x-visible pb-2 md:pb-0 scrollbar-hide">
               {gallery.map((img) => (
                 <button
                   key={img}
                   onClick={() => setMainImage(img)}
-                  className={`w-14 h-14 border p-1 cursor-pointer transition-all ${
+                  className={`w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0 border p-1 cursor-pointer transition-all ${
                     mainImage === img ? "border-black scale-105" : "border-[#e2d8cc]"
                   }`}
                 >
@@ -107,7 +107,7 @@ const { addToCart } = useCart();
 
             {/* DETAILS */}
             <div>
-              <h1 className="text-[30px] font-serif font-bold text-black">
+              <h1 className="text-xl sm:text-2xl md:text-[30px] font-serif font-bold text-black leading-tight">
                 {product.name}
               </h1>
 
@@ -126,7 +126,7 @@ const { addToCart } = useCart();
                 <span className="text-green-600">In Stock</span>
               </div>
 
-              <p className="mt-4 text-[28px] text-[#c5a25f] font-semibold">
+              <p className="mt-4 text-2xl sm:text-[28px] text-[#c5a25f] font-semibold">
                 {product.price}
               </p>
 
@@ -183,8 +183,21 @@ const { addToCart } = useCart();
                 </button>
 
               </div>
-              <div className="mt-5 flex gap-4 w-full">
-                <button className="flex-1 bg-transparent border border-[#7a2e2e] text-[#7a2e2e] py-2.5 text-sm font-semibold rounded-full cursor-pointer hover:bg-[#7a2e2e] hover:text-white transition">
+              <div className="mt-5 flex flex-col sm:flex-row gap-3 sm:gap-4 w-full">
+                <button 
+                  onClick={() => {
+                    const item = {
+                      id: product.id,
+                      name: product.name,
+                      price: Number(product.price.replace(/[^0-9]/g, "")),
+                      image: product.image,
+                      quantity: qty,
+                    };
+                    const query = encodeURIComponent(JSON.stringify(item));
+                    router.push(`/checkout?buyNow=${query}`);
+                  }}
+                  className="flex-1 bg-transparent border border-[#7a2e2e] text-[#7a2e2e] py-3 sm:py-2.5 text-sm font-semibold rounded-full cursor-pointer hover:bg-[#7a2e2e] hover:text-white transition"
+                >
                   Buy Now
                 </button>
                 <button
@@ -197,7 +210,7 @@ const { addToCart } = useCart();
       quantity: qty,
     })
   }
-  className="flex-1 bg-[#c6a55c] text-[#7a2e2e] py-2.5 text-sm font-semibold rounded-full cursor-pointer hover:bg-[#b8964f] transition flex items-center justify-center gap-2"
+  className="flex-1 bg-[#c6a55c] text-[#7a2e2e] py-3 sm:py-2.5 text-sm font-semibold rounded-full cursor-pointer hover:bg-[#b8964f] transition flex items-center justify-center gap-2"
 >
   <i className="fa-solid fa-cart-shopping"></i> Add To Cart
 </button>
@@ -213,7 +226,7 @@ const { addToCart } = useCart();
       <section className="w-full bg-[#d6cec4] py-16">
 
         {/* Wider container */}
-        <div className="max-w-[1400px] mx-auto px-10 md:px-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-10 md:px-20">
 
           {/* TITLE */}
           <h2 className="text-center text-[#7a2e2e] text-[22px] font-serif font-semibold mb-14">
@@ -221,7 +234,7 @@ const { addToCart } = useCart();
           </h2>
 
           {/* CONTENT */}
-          <div className="grid md:grid-cols-2 gap-24 text-[13px] leading-7">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-24 text-[13px] leading-7">
 
             {/* DESCRIPTION */}
             <div>
@@ -287,12 +300,12 @@ const { addToCart } = useCart();
         </div>
       </section>
       {/* RELATED */}
-      <section className="py-12 px-6 md:px-16">
+      <section className="py-12 px-4 md:px-16">
         <h3 className="text-center text-[#7a2e2e] text-[20px] mb-8 text-sm font-semibold">
           You May Also Like
         </h3>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-[1200px] mx-auto">
           {relatedProducts.map((p) => (
             <Link key={p.id} href={`/products/${p.id}`}>
               <div className="border border-[#b76e6e] rounded-xl p-4 text-center hover:shadow-md cursor-pointer">

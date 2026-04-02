@@ -101,3 +101,11 @@ html {
   outline: 2px solid #b58921;
   outline-offset: 2px;
 }
+
+.input {
+  padding: 10px;
+  border: 1px solid #c5a25f;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 14px;
+}
